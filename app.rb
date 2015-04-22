@@ -1,6 +1,6 @@
 require('sinatra')
 require('sinatra/reloader')
-require('./lib/title_case')
+require('./lib/scrabble')
 also_reload('lib/**/*.rb')
 
 
@@ -8,7 +8,7 @@ get('/') do
   erb(:index)
 end
 
-get('/title') do
-  @title = params.fetch('title').title_case()
-  erb(:title)
+get('/scrabblepoints') do
+  @points = params.fetch('points').scrabble()
+  erb(:scrabblepoints)
 end
